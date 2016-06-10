@@ -3,3 +3,9 @@
     /*width: 80%;*/
     background-color: red;
 }
+
+
+#cvStyle{
+    border-color:black; 
+    border-width:3;
+}

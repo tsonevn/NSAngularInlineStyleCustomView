@@ -4,27 +4,26 @@ var custom_component_1 = require("./custom.component");
 var AppComponent = (function () {
     function AppComponent() {
         this.counter = 16;
+        this.time = 30;
     }
-    Object.defineProperty(AppComponent.prototype, "message", {
-        get: function () {
-            if (this.counter > 0) {
-                return this.counter + " taps left";
-            }
-            else {
-                return "Hoorraaay! \nYou are ready to start building!";
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
+    // public get message(): string {
+    //     if (this.counter > 0) {
+    //         return this.counter + " taps left";
+    //     } else {
+    //         return "Hoorraaay! \nYou are ready to start building!";
+    //     }
+    // }
     AppComponent.prototype.onTap = function () {
         this.counter--;
+    };
+    AppComponent.prototype.onchange = function (newtime) {
+        this.time = newtime;
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: "my-app",
             directives: [custom_component_1.CustomComponent],
-            template: "\n<StackLayout style=\"background-color: green;\" >\n        <Label text=\"Label in first StackLayout\"></Label>\n        <Custom></Custom>\n    </StackLayout>\n",
+            template: "\n<StackLayout style=\"background-color: green;\" width=\"100%\">\n\n        <Label  [text]=\"time + 'minutes'\"></Label>\n        <Label  text=\"Label in first StackLayout\"></Label>\n        <Custom></Custom>\n        <Slider  #sl minValue=1  maxValue=120 [value]=\"time\" (valueChange)=\"onchange(sl.value)\"></Slider>\n    </StackLayout>\n",
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
