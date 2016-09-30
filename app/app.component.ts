@@ -1,9 +1,7 @@
 import {Component} from "@angular/core";
-import {CustomComponent} from "./custom.component"
 
 @Component({
     selector: "my-app",
-    directives:[CustomComponent],
     template: `
 <StackLayout style="background-color: green;" width="100%">
 
